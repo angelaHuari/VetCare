@@ -2,6 +2,8 @@
 namespace repositories;
 use interfaces\RepositoryInterface;
 use config\Database;
+use PDO;
+// Repositorio de mascotas que implementa la interfaz RepositoryInterface
 
 class PetRepository implements RepositoryInterface {
     private $db;
@@ -12,9 +14,13 @@ class PetRepository implements RepositoryInterface {
     }
 
     public function findAll() {
-        // Lógica para obtener todas las mascotas
-        $stmt = $this->db->query("SELECT * FROM pets");
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        try {
+            $stmt = $this->db->query("SELECT * FROM pets"); // ← corregido
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (\PDOException $e) {
+            error_log("Error en PetRepository::findAll: " . $e->getMessage());
+            return [];
+        }
     }
 
     public function find($id) {
@@ -35,5 +41,15 @@ class PetRepository implements RepositoryInterface {
             'breed' => $pet->getBreed(),
             'owner_id' => $pet->getOwnerId()
         ]);
+    }
+    public function findById($id) {
+        try {
+            $stmt = $this->db->prepare("SELECT * FROM pets WHERE id = :id");
+            $stmt->execute(['id' => $id]);
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (\PDOException $e) {
+            error_log("Error en PetRepository::findById: " . $e->getMessage());
+            return null;
+        }
     }
 }

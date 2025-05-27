@@ -21,6 +21,26 @@ $notifier = new EmailNotifier();
 
 $service = new AppointmentService($repo, $notifier);
 $service->createAppointment($appointment);
+use controllers\PetController;
+use services\PetService;
+use repositories\PetRepository;
+
+// Inyección de dependencias
+$petRepository = new PetRepository();
+$petService = new PetService($petRepository);
+$petController = new PetController($petService);
+
+// Ejemplo de enrutamiento simple
+$view = $_GET['view'] ?? 'home';
+switch ($view) {
+    case 'pet':
+        $petController->index();
+        break;
+    // Otros casos...
+    default:
+        include 'views/layout/header.php';
+        break;
+}
 
 // index.php
 include 'views/layout/header.php';
