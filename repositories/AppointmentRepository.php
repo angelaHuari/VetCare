@@ -1,4 +1,8 @@
 <?php
+namespace repositories;
+use interfaces\RepositoryInterface;
+use config\Database;
+
 // repositories/AppointmentRepository.php
 class AppointmentRepository implements RepositoryInterface {
     private $db;

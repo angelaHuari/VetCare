@@ -1,4 +1,6 @@
 <?php
+namespace models;
+use DateTime;
 // entities/Appointment.php
 class Appointment {
     private $pet;

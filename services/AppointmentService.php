@@ -1,5 +1,9 @@
 <?php
-// services/AppointmentService.php
+namespace services;
+use models\Appointment;
+use interfaces\RepositoryInterface;
+use interfaces\NotificationInterface;
+
 class AppointmentService {
     private $repo;
     private $notifier;

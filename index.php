@@ -1,8 +1,19 @@
 <?php
 require_once 'autoload.php';
 
+use models\Owner;
+use models\Pet;
+use models\Appointment;
+use repositories\AppointmentRepository;
+use interfaces\NotificationInterface;
+use interfaces\RepositoryInterface;
+use services\AppointmentService;
+use services\EmailNotifier;
+
+
+
 $owner = new Owner("Juan", "juan@gmail.com");
-$pet = new Pet("Firulais", "Perro", $owner);
+$pet = new Pet("Catt", "Perro", $owner);
 $appointment = new Appointment($pet, new DateTime("2025-05-23 15:00"));
 
 $repo = new AppointmentRepository();

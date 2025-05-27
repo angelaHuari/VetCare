@@ -1,11 +1,11 @@
 <?php
 // views/owner/register.php
-include 'layout/header.php';
+// include __DIR__ . '/../layout/header.php';
 ?>
 
 <div class="container">
     <h2>Registrar Dueño</h2>
-    <form action="process_owner.php" method="POST">
+    <form action="services/.php" method="POST">
         <div class="form-group">
             <label for="owner_name">Nombre del Dueño:</label>
             <input type="text" id="owner_name" name="owner_name" required>
@@ -21,5 +21,5 @@ include 'layout/header.php';
 </div>
 
 <?php
-include 'layout/footer.php';
+// include __DIR__ . '/../layout/footer.php';
 ?>

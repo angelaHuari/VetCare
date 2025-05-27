@@ -1,6 +1,6 @@
 <?php
 // views/pet/register.php
-include 'layout/header.php';
+// include __DIR__ . '/../layout/header.php';
 ?>
 
 <div class="container">
@@ -21,5 +21,5 @@ include 'layout/header.php';
 </div>
 
 <?php
-include 'layout/footer.php';
+// include __DIR__ . '/../layout/footer.php';
 ?>

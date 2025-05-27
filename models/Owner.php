@@ -1,4 +1,5 @@
 <?php
+namespace models;
 // entities/Owner.php
 class Owner {
     private $name;

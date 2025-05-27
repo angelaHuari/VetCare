@@ -1,4 +1,6 @@
 <?php
+namespace config;
+use PDO;
 // config/db.php
 class Database {
     public static function connect() {

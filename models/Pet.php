@@ -1,4 +1,5 @@
 <?php
+namespace models;
 // entities/Pet.php
 class Pet {
     private $name;

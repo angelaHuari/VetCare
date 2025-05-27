@@ -1,4 +1,5 @@
 <?php
+namespace interfaces;
 // interfaces/RepositoryInterface.php
 interface RepositoryInterface {
     public function findAll();
