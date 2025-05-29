@@ -1,15 +1,18 @@
 <?php
 namespace models;
-// entities/Pet.php
+// models/Pet.php
 class Pet {
+    private $id;
     private $name;
     private $species;
-    private $owner;
+    private $breed;
+    private $ownerId;
 
-    public function __construct($name, $species, Owner $owner) {
+    public function __construct($name, $species, $breed, $ownerId) {
         $this->name = $name;
         $this->species = $species;
-        $this->owner = $owner;
+        $this->breed = $breed;
+        $this->ownerId = $ownerId;
     }
 
     public function getName() {
@@ -20,7 +23,15 @@ class Pet {
         return $this->species;
     }
 
-    public function getOwner() {
-        return $this->owner;
+    public function getBreed() {
+        return $this->breed;
+    }
+
+    public function getOwnerId() {
+        return $this->ownerId;
+    }
+    
+    public function getId() {
+        return $this->id;
     }
 }

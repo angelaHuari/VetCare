@@ -2,10 +2,12 @@
 namespace models;
 // entities/Owner.php
 class Owner {
+    private $id;
     private $name;
     private $email;
 
-    public function __construct($name, $email) {
+    public function __construct($id,$name, $email) {
+        $this->id = $id;
         $this->name = $name;
         $this->email = $email;
     }
